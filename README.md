@@ -49,5 +49,13 @@ While Docker Compose & Docker *should* be handling the file permissions for cert
 sudo docker-compose run web chown -R deaconn:deaconn /deaconn
 ```
 
+Finally, you'll want to make an administrator user so you can log into the admin panel at `http://website.com/admin`.
+
+```bash
+sudo docker-compose run web cd back-bone/deaconn/ && python manage.py createsuperuser
+```
+
+After you've logged into admin panel, you should be able to see additional options on the blog software where you can create blogs, comment, and more.
+
 ## Credits
 * [Christian Deacon](https://github.com/gamemann)
