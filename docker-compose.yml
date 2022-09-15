@@ -13,7 +13,6 @@ services:
     build: .
     command: bash -c "chmod +x start.sh && ./start.sh"
     volumes:
-      - ./py-packages:/py-packages
       - .:/deaconn
       
       # SSH private key must exist at /var/deaconn/deakey.
