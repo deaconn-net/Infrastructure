@@ -6,21 +6,24 @@ services:
     volumes:
       - ./data/db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_NAME=dbname
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=password
+      - POSTGRES_NAME=${DBNAME}
+      - POSTGRES_USER=${DBUSER}
+      - POSTGRES_PASSWORD=${DBPASS}
   web:
     build: .
-    command: bash -c "chmod +x start.sh && ./start.sh"
+    user: deaconn
+    command: bash -c "./start.sh"
     volumes:
-      - .:/deaconn
-      
-      # SSH private key must exist at /var/deaconn/deakey.
-      - /var/deaconn/deakey:/root/.ssh/id_ed25519
+      - ./back-bone:/deaconn/back-bone
+      - ./media:/deaconn/media
+      - ./static:/deaconn/static
+      - ./data-web:/deaconn/data
     environment:
-      - POSTGRES_NAME=dbname
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=password
-      - 'DJANGO_KEY=mysecret' # Note -> https://miniwebtool.com/django-secret-key-generator/
+      - POSTGRES_NAME=${DBNAME}
+      - POSTGRES_USER=${DBUSER}
+      - POSTGRES_PASSWORD=${DBPASS}
+      - 'DJANGO_KEY=${SECRET_KEY}'
+      - PYTHONPATH=/deaconn/.local/lib/python3.10:/deaconn/.local/lib/python3.10/site-packages
+      - PATH=${PATH}:/deaconn/.local/bin
     depends_on:
       - db
