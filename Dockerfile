@@ -11,7 +11,7 @@ WORKDIR /deaconn
 
 USER deaconn
 COPY requirements.txt /deaconn
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt --no-warn-script-location
 
 RUN mkdir data/
 RUN mkdir data-web/
