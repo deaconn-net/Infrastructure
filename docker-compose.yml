@@ -12,7 +12,6 @@ services:
   web:
     build: .
     user: root
-    command: chown -R deaconn:deaconn /deaconn
     command: su -c "./start.sh" deaconn
     volumes:
       - ./back-bone:/deaconn/back-bone

@@ -9,6 +9,12 @@ RUN useradd -md /deaconn -s /bin/bash -g deaconn deaconn
 
 WORKDIR /deaconn
 
+# Create directories
+RUN mkdir data-web/ && chown -R deaconn:deaconn data-web/
+RUN mkdir media/ && chown -R deaconn:deaconn media/
+RUN mkdir static/ && chown -R deaconn:deaconn static/
+RUN mkdir back-bone/ && chown -R deaconn:deaconn back-bone/
+
 USER deaconn
 COPY requirements.txt /deaconn
 RUN pip install -r requirements.txt --no-warn-script-location
