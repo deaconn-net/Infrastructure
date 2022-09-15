@@ -11,5 +11,13 @@ ExecStart=/usr/local/bin/docker-compose up -d
 ExecStop=/usr/local/bin/docker-compose down
 TimeoutStartSec=0
 
+# Configuration.
+Environment=DBNAME=dbname
+Environment=DBUSER=dbuser
+Environment=DBPASS=dbpass
+
+# Note -> https://miniwebtool.com/django-secret-key-generator/
+Environment=SECRET_KEY="mykey"
+
 [Install]
 WantedBy=multi-user.target
