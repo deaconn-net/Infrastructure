@@ -16,7 +16,6 @@ cd back-bone/
 git status
 
 if [ $? -ne 0 ]; then
-        cd back-bone/
         rm -rf back-bone
         run_cmd "git clone git@github.com:Deaconn-net/back-bone.git"
         cd back-bone
