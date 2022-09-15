@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_NAME=dbname
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+  web:
+    build: .
+    command: bash -c "chmod +x start.sh && ./start.sh"
+    volumes:
+      - ./py-packages:/py-packages
+      - .:/deaconn
+      
+      # SSH private key must exist at /var/deaconn/deakey.
+      - /var/deaconn/deakey:/root/.ssh/id_ed25519
+    environment:
+      - POSTGRES_NAME=dbname
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - 'DJANGO_KEY=mysecret' # Note -> https://miniwebtool.com/django-secret-key-generator/
+    depends_on:
+      - db
