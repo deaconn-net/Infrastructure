@@ -13,7 +13,6 @@ USER deaconn
 COPY requirements.txt /deaconn
 RUN pip install -r requirements.txt
 
-COPY bg.mp4 /deaconn/back-bone/deaconn/home/static/home/bg.mp4
 RUN mkdir data/
 
 COPY start.sh /deaconn/start.sh

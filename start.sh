@@ -4,7 +4,6 @@ function run_cmd()
         ssh-agent bash -c "GIT_SSH_COMMAND='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no' $1"
 }
 
-
 # Check if we need to clone.
 if [ ! -d "back-bone" ] ; then
         run_cmd "git clone git@github.com:Deaconn-net/back-bone.git"
