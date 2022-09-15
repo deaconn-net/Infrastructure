@@ -1,5 +1,4 @@
 #!/bin/bash
-# Import SSH key.
 function run_cmd()
 {
         ssh-agent bash -c "GIT_SSH_COMMAND='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no' $1"
