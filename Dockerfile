@@ -13,12 +13,6 @@ USER deaconn
 COPY requirements.txt /deaconn
 RUN pip install -r requirements.txt --no-warn-script-location
 
-RUN mkdir data/
-RUN mkdir data-web/
-RUN mkdir media/
-RUN mkdir static/
-RUN mkdir back-bone/
-
 COPY start.sh /deaconn/start.sh
 
 USER root
@@ -28,8 +22,3 @@ USER deaconn
 RUN chmod +x start.sh
 
 VOLUME /deaconn/.local/
-VOLUME /deaconn/data/
-VOLUME /deaconn/data-web
-VOLUME /deaconn/media
-VOLUME /deaconn/static
-VOLUME /deaconn/back-bone

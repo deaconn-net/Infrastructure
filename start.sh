@@ -1,18 +1,24 @@
 #!/bin/bash
-function run_cmd()
-{
-        ssh-agent bash -c "GIT_SSH_COMMAND='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no' $1"
-}
-
 # Check if we need to clone.
 if [ ! -d "back-bone" ] ; then
-        run_cmd "git clone git@github.com:Deaconn-net/back-bone.git"
+        git clone git@github.com:Deaconn-net/back-bone.git
 fi
 
 # Pull from remote.
 cd back-bone/
+
+# Make sure we're in a Git directory. If not, force rewrite.
+git status
+
+if [ $? -ne 0 ]; then
+        cd back-bone/
+        rm -rf back-bone
+        git clone git@github.com:Deaconn-net/back-bone.git
+        cd back-bone
+fi
+
 git config pull.rebase false
-run_cmd "git pull origin master"
+git pull origin master
 
 # Collect files.
 cd deaconn

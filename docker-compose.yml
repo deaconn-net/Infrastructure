@@ -11,8 +11,12 @@ services:
       - POSTGRES_PASSWORD=${DBPASS}
   web:
     build: .
-    user: deaconn
-    command: bash -c "./start.sh"
+    command: chown -R deaconn:deaconn /deaconn/ &&  su -c "./start.sh" deaconn
+    volumes:
+      - ./back-bone:/deaconn/back-bone
+      - ./media:/deaconn/media
+      - ./static:/deaconn/static
+      - ./data-web:/deaconn/data
     environment:
       - POSTGRES_NAME=${DBNAME}
       - POSTGRES_USER=${DBUSER}
