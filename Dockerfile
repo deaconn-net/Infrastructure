@@ -28,3 +28,8 @@ USER deaconn
 RUN chmod +x start.sh
 
 VOLUME /deaconn/.local/
+VOLUME /deaconn/data/
+VOLUME /deaconn/data-web
+VOLUME /deaconn/media
+VOLUME /deaconn/static
+VOLUME /deaconn/back-bone

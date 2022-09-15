@@ -13,11 +13,6 @@ services:
     build: .
     user: deaconn
     command: bash -c "./start.sh"
-    volumes:
-      - ./back-bone:/deaconn/back-bone
-      - ./media:/deaconn/media
-      - ./static:/deaconn/static
-      - ./data-web:/deaconn/data
     environment:
       - POSTGRES_NAME=${DBNAME}
       - POSTGRES_USER=${DBUSER}
