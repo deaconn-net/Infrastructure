@@ -1,6 +1,6 @@
 #!/bin/bash
-#export DBNAME=dbname
-#export DBUSER=dbuser
+#export DBNAME=postgres
+#export DBUSER=postgres
 #export DBPASS=dbpass
 #export SECRET_KEY="mykey"
 
