@@ -12,8 +12,8 @@ ExecStop=/usr/local/bin/docker-compose down
 TimeoutStartSec=0
 
 # Configuration.
-Environment=DBNAME=dbname
-Environment=DBUSER=dbuser
+Environment=DBNAME=postgres
+Environment=DBUSER=postgres
 Environment=DBPASS=dbpass
 
 # Note -> https://miniwebtool.com/django-secret-key-generator/
