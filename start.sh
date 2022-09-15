@@ -16,9 +16,6 @@ cd back-bone/
 git config pull.rebase false
 run_cmd "git pull origin master"
 
-# Make sure background video exists.
-#cp -n ../bg.mp4 deaconn/home/static/home/bg.mp4
-
 # Collect files.
 cd deaconn
 python manage.py makemigrations --noinput
