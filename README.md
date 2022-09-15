@@ -8,8 +8,8 @@ In regards to the `back-bone` respository, when a commit is ran on the `master` 
 You may use `git` to clone the repository like the following.
 
 ```bash
-# Clone the Deaconn infrastructure respository.
-git clone https://github.com/Deaconn-net/Infrastructure.git
+# Clone the Deaconn infrastructure respository. If you want to use something other than '/var/deaconn', you will need change the Systemd and NGINX configuration files.
+git clone https://github.com/Deaconn-net/Infrastructure.git /var/deaconn
 
 # Change directories.
 cd Infrastructure/
